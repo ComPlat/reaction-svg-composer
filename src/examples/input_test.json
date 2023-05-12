@@ -1,0 +1,21 @@
+[
+  {
+    "type": "condition",
+    "step": 1,
+    "value": ""
+  },
+  {
+    "type": "temperature",
+    "step": 1,
+    "value": {
+      "data": [],
+      "userText": "80",
+      "valueUnit": "°C"
+    }
+  },
+  {
+    "type": "duration",
+    "step": 1,
+    "value": "3 Day(s)"
+  }
+]

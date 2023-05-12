@@ -1,0 +1,19 @@
+[
+  // global settings
+  Multistep: bool, // group reagents by step
+  Condition: bool, 
+  Temperature: bool,
+  Duration: bool,
+  Svg_type: (ketcher | ketcher1 | ketcher2 | chemdraw19 | marvin …),
+  //settings for each sample
+  (sample_id): {
+     Coefficient: bool
+     Yield(equivalent):  bool
+     molecule_sum_formula:  bool
+     Sample_short_label: bool
+     Sample_external_label: bool
+     Molecule_name: bool
+     Sample_index: bool
+     SVGs: bool
+  }
+]

@@ -1,0 +1,56 @@
+import ELNContainerInterface from "./ELNContainerInterface.js";
+import ELNElementalCompositionsInterface from "./ELNElementalCompositionsInterface.js";
+import ELNElementInterface from "./ELNElementInterface.js";
+import ELNMoleculeInterface from "./ELNMoleculeInterface.js";
+import ELNStereoInterface from "./ELNStereoInterface.js";
+
+export default interface ELNSampleInterface extends ELNElementInterface {
+  attached_amount_mg: string; // field for polymers calculations
+  boiling_point_lowerbound?: number;
+  boiling_point_upperbound?: number;
+  can_copy: boolean;
+  can_update: boolean;
+  coefficient: number;
+  collection_id: number;
+  container: ELNContainerInterface;
+  decoupled: boolean;
+  density: number;
+  description: string;
+  elemental_compositions: ELNElementalCompositionsInterface[];
+  equivalent: number;
+  external_label: string;
+  id: number;
+  imported_readout: string;
+  is_split?: boolean;
+  is_top_secret?: boolean;
+  location: string;
+  melting_point_lowerbound?: number;
+  melting_point_upperbound?: number;
+  metrics: string;
+  molarity_unit: string;
+  molarity_value: number;
+  molecular_mass: number;
+  molecule_id?: number;
+  molecule_name_id?: string;
+  molecule_name: string;
+  molecule: ELNMoleculeInterface;
+  molfile: string;
+  name: string;
+  parent_id?: number;
+  purity: number;
+  real_amount_unit?: string;
+  real_amount_value: number;
+  residues: any[];
+  sample_svg_file?: string;
+  segments?: any[];
+  short_label?: string;
+  show_label: boolean;
+  solvent: any[];
+  stereo: ELNStereoInterface | null;
+  sum_formula: string;
+  target_amount_unit: string;
+  target_amount_value: number;
+  type: "sample";
+  user_labels?: any[];
+  xref: any;
+}
