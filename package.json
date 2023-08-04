@@ -1,11 +1,14 @@
 {
-  "name": "chemotion_reaction_rendering",
+  "name": "@complat/chemotion-reaction-svg-composer",
   "version": "1.0.0",
   "description": "composes svg picture of a reaction out of individual ones and other text components",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
   "type": "module",
-  "repository": "git@bitbucket.org:cortona/chemotion_reaction_rendering.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ComPlat/reaction-svg-composer.git"
+  },
   "author": "Markus Wersig <m.wersig@cortona.de>",
   "license": "MIT",
   "devDependencies": {
@@ -61,5 +64,13 @@
   },
   "files": [
     "lib/**/**/*"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/ComPlat/reaction-svg-composer/issues"
+  },
+  "homepage": "https://github.com/ComPlat/reaction-svg-composer#readme",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  }
 }
