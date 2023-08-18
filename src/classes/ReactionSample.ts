@@ -53,7 +53,8 @@ export class ReactionSample implements ReactionSampleInterface {
   }
 
   static fetchSvg(svgUrl?: string) {
-    const fullSvgUrl = svgUrl ? `/images/samples/${svgUrl}` : `/images/wild_card/no_image_180.svg`;
+    const baseUrl = process.env.BASEURL || '';
+    const fullSvgUrl = svgUrl ? `${baseUrl}/images/samples/${svgUrl}` : `${baseUrl}/images/wild_card/no_image_180.svg`;
     return fetch(fullSvgUrl)
       .then((response) => {
         return response.text();
