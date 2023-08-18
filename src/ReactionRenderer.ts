@@ -4,7 +4,8 @@ import ReactionSampleInterface, { ReactionSampleTypes } from "./interfaces/React
 import ReactionType from "./interfaces/ReactionType.js";
 import TemperatureInterface from "./interfaces/TemperatureInterface.js";
 import DurationInterface from "./interfaces/DurationInterface.js";
-import { G, SVG, Svg } from "@svgdotjs/svg.js";
+import { G, SVG, Svg, registerWindow } from "@svgdotjs/svg.js";
+import { createSVGWindow } from "svgdom";
 import ELNReactionInterface from "./interfaces/ELNReactionInterface.js";
 import ReactionSample from "./classes/ReactionSample.js";
 import SVGType from "./interfaces/SVGTypeEnum.js";
@@ -38,13 +39,17 @@ class ReactionRenderer {
   startingMaterials: ReactionSampleInterface[] = [];
   fullSvg: Svg;
   constructor(displayMatrix: DisplayMatrixInterface, reaction: ReactionType) {
+    if (process.env.HEADLESS === "true") {
+      const window = createSVGWindow();
+      const document = window.document;
+      registerWindow(window, document);
+    }
     this.fullSvg = SVG();
     this.displayMatrix = displayMatrix;
     this.reaction = reaction;
   }
 
   static convertELNReaction(elnReaction: ELNReactionInterface): Promise<ReactionType> {
-    console.info("Convert ELN Reaction");
     const startingMaterialsPromises = elnReaction.starting_materials.map((material) => ReactionSample.ReactionSampleFromELNSample(material, "ReactionsStartingMaterialSample")),
       solventsPromises = elnReaction.solvents.map((solvent) => ReactionSample.ReactionSampleFromELNSample(solvent, "ReactionsSolventSample")),
       purificationSolventsPromises = elnReaction.purification_solvents.map((purificationSolvent) => ReactionSample.ReactionSampleFromELNSample(purificationSolvent, "ReactionsPurificationSolventSample")),

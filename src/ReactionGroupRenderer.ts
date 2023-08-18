@@ -3,6 +3,13 @@ import { calculateBoundingBox } from "./helper/boundingBoxHelper.js";
 import DisplayMatrixInterface from "interfaces/DisplayMatrixInterface.js";
 import ReactionSampleInterface from "interfaces/ReactionSampleInterface.js";
 import ReactionSampleRenderer from "./ReactionSampleRenderer.js";
+import jsdom from "jsdom";
+
+
+if (process.env.HEADLESS === "true") {
+  const dom = new jsdom.JSDOM('');
+  global.DOMParser = dom.window.DOMParser;
+}
 
 class ReactionGroupRenderer {
   private _samples!: ReactionSampleInterface[];
