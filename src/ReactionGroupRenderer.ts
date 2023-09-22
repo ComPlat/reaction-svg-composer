@@ -1,9 +1,10 @@
 import { Box, G, Svg, SVG, Text } from "@svgdotjs/svg.js";
+import jsdom from "jsdom";
+
 import { calculateBoundingBox } from "./helper/boundingBoxHelper.js";
 import DisplayMatrixInterface from "interfaces/DisplayMatrixInterface.js";
 import ReactionSampleInterface from "interfaces/ReactionSampleInterface.js";
 import ReactionSampleRenderer from "./ReactionSampleRenderer.js";
-import jsdom from "jsdom";
 
 
 if (process.env.HEADLESS === "true") {

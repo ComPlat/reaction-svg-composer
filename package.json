@@ -33,7 +33,7 @@
     "tscCommon": "tsc  -p tsconfig.cjs.json",
     "lint": "eslint --fix",
     "start": "node --experimental-json-modules lib/esm/index.js",
-    "test": "jest",
+    "test": "HEADLESS=true jest",
     "prepare": "yarn run tscEs && yarn run tscCommon"
   },
   "dependencies": {
