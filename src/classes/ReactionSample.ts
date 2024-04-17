@@ -52,9 +52,10 @@ export class ReactionSample implements ReactionSampleInterface {
     this.coefficient = coefficient || 1;
   }
 
-  static fetchSvg(svgUrl?: string) {
+  static fetchSvg(svgUrl?: string, isSampleSvgEmpty?: boolean) {
     const baseUrl = process.env.BASEURL || '';
-    const fullSvgUrl = svgUrl ? `${baseUrl}/images/samples/${svgUrl}` : `${baseUrl}/images/wild_card/no_image_180.svg`;
+    //const fullSvgUrl = svgUrl ? `${baseUrl}/images/samples/${svgUrl}` : `${baseUrl}/images/wild_card/no_image_180.svg`;
+    const fullSvgUrl =   svgUrl ? (isSampleSvgEmpty ? `${baseUrl}/images/molecules/${svgUrl}` : `${baseUrl}/images/samples/${svgUrl}`) : `${baseUrl}/images/wild_card/no_image_180.svg` ;
     return fetch(fullSvgUrl)
       .then((response) => {
         return response.text();
@@ -65,7 +66,11 @@ export class ReactionSample implements ReactionSampleInterface {
   }
 
   static ReactionSampleFromELNSample(sample: ELNSampleInterface, type: ReactionSampleTypes): Promise<ReactionSample> {
-    return ReactionSample.fetchSvg(sample.sample_svg_file).then((svg) => {
+    const isSampleSvgEmpty = (sample?.sample_svg_file === null || sample?.sample_svg_file === undefined) ? true : false;
+    const svgFile = isSampleSvgEmpty ? sample.molecule.molecule_svg_file : sample?.sample_svg_file;
+    console.log(isSampleSvgEmpty);
+    return ReactionSample.fetchSvg(svgFile, isSampleSvgEmpty).then((svg) => {
+      console.info(isSampleSvgEmpty, svgFile)
       const reactionSample = new ReactionSample({
         sample_id: sample.id,
         type: type,

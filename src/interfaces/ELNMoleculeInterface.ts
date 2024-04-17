@@ -2,6 +2,7 @@ import ELNElementInterface from "./ELNElementInterface.js";
 
 export default interface ELNMoleculeInterface extends ELNElementInterface {
   molecular_weight: number;
+  molecule_svg_file?: string;
   exact_molecular_weight: string;
   density: number;
   melting_point: number;
