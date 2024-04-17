@@ -29,8 +29,8 @@
   },
   "scripts": {
     "compile": "yarn run tscEs && yarn run tscCommon",
-    "tscEs": "tsc -w -p tsconfig.esm.json",
-    "tscCommon": "tsc -w -p tsconfig.cjs.json",
+    "tscEs": "tsc -p tsconfig.esm.json",
+    "tscCommon": "tsc -p tsconfig.cjs.json",
     "lint": "eslint --fix",
     "start": "node --experimental-json-modules lib/esm/index.js",
     "test": "HEADLESS=true jest",
