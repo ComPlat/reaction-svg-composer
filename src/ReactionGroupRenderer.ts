@@ -1,15 +1,15 @@
 import { Box, G, Svg, SVG, Text } from "@svgdotjs/svg.js";
-import jsdom from "jsdom";
 
 import { calculateBoundingBox } from "./helper/boundingBoxHelper.js";
 import DisplayMatrixInterface from "interfaces/DisplayMatrixInterface.js";
 import ReactionSampleInterface from "interfaces/ReactionSampleInterface.js";
 import ReactionSampleRenderer from "./ReactionSampleRenderer.js";
 
-
-if (process.env.HEADLESS === "true") {
-  const dom = new jsdom.JSDOM('');
-  global.DOMParser = dom.window.DOMParser;
+if (process.env.HEADLESS_REACTION_SVG === "true") {
+  import("jsdom").then((jsdom) => {
+    const dom = new jsdom.JSDOM('');
+    global.DOMParser = dom.window.DOMParser;
+  });
 }
 
 class ReactionGroupRenderer {

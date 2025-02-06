@@ -39,7 +39,7 @@ class ReactionRenderer {
   startingMaterials: ReactionSampleInterface[] = [];
   fullSvg: Svg;
   constructor(displayMatrix: DisplayMatrixInterface, reaction: ReactionType) {
-    if (process.env.HEADLESS === "true") {
+    if (process.env.HEADLESS_REACTION_SVG === "true") {
       const window = createSVGWindow();
       const document = window.document;
       registerWindow(window, document);
