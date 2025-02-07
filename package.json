@@ -37,8 +37,8 @@
     "prepare": "yarn run tscEs && yarn run tscCommon"
   },
   "dependencies": {
-    "@svgdotjs/svg.js": "^3.2.0",
-    "svgdom": "^0.1.14"
+    "@svgdotjs/svg.js": "^3.2.4",
+    "svgdom": "^0.1.19"
   },
   "exports": {
     ".": {
