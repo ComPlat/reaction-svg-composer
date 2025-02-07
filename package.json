@@ -33,7 +33,7 @@
     "tscCommon": "tsc  -p tsconfig.cjs.json",
     "lint": "eslint --fix",
     "start": "node --experimental-json-modules lib/esm/index.js",
-    "test": "HEADLESS_REACTION_SVG=true jest",
+    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" HEADLESS_REACTION_SVG=true jest",
     "prepare": "yarn run tscEs && yarn run tscCommon"
   },
   "dependencies": {
