@@ -15,6 +15,7 @@
     "@types/jest": "^29.5.3",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@typescript-eslint/parser": "^6.4.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.47.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
@@ -28,16 +29,17 @@
     "typescript": "^5.1.6"
   },
   "scripts": {
-    "compile": "yarn run tscEs && yarn run tscCommon",
+    "compile": "yarn run tscEs && yarn run tscCommon && yarn run test",
     "tscEs": "tsc  -p tsconfig.esm.json",
     "tscCommon": "tsc  -p tsconfig.cjs.json",
     "lint": "eslint --fix",
     "start": "node --experimental-json-modules lib/esm/index.js",
-    "test": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" HEADLESS_REACTION_SVG=true jest",
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules HEADLESS_REACTION_SVG=true jest",
     "prepare": "yarn run tscEs && yarn run tscCommon"
   },
   "dependencies": {
     "@svgdotjs/svg.js": "^3.2.0",
+    "dotenv": "^16.4.7",
     "svgdom": "^0.1.14"
   },
   "exports": {
