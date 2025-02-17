@@ -59,6 +59,10 @@ navigate to into reaction-svg-composer and execute
 npm link
 yarn compile
 ```
+### Development - ali 14.02.2024
+set .env (HEADLESS_REACTION_SVG=true) in root directory
+run following: node .\example\index.js 
+
 
 
 ## Acknowledgments
